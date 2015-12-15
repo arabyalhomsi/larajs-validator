@@ -44,7 +44,7 @@
    * Check the type of the value
    * @return {string} The type of the given value
    */
-  function checkType(value) {
+  function _checkType(value) {
     if (typeof value == 'object') {
       if (Array.isArray(value)) {
           return 'array';
@@ -68,14 +68,14 @@
    * @param  {mixed} value 		a value to check.
    * @return {boolean}				true if yes, false if no.
    */
-  function checkIfHave(value) {
+  function _checkIfHave(value) {
     var returned = false;
-    if (checkType(value) == 'object') {
+    if (_checkType(value) == 'object') {
         if (Object.keys(value).length) {
             returned = true;
         }
     }
-    else if (checkType(value) == 'array') {
+    else if (_checkType(value) == 'array') {
         if (value.length != 0) {
           returned = true;
         }
@@ -118,7 +118,8 @@
 		min: checkMin,
 		max: checkMax,
 		required: checkRequired,
-		same: checkSame
+		same: checkSame,
+    type: checkType
 	};
 
 	/**
@@ -130,7 +131,7 @@
   function checkMin(value, rule) {
   	if (!value) return true;
 
-  	switch(checkType(value)) {
+  	switch(_checkType(value)) {
   		case 'string':
   			if (value.length >= rule) {
   				return true;
@@ -165,7 +166,7 @@
   function checkMax(value, rule) {
   	if (!value) return true;
 
-  	switch (checkType(value)) {
+  	switch (_checkType(value)) {
   		case 'string':
   			if (value.length <= rule) {
   				return true;
@@ -198,7 +199,7 @@
    */
   function checkRequired(value, rule) {
   	if (rule) {
-  		var status = checkIfHave(value);
+  		var status = _checkIfHave(value);
   		return status;
   	}
   }
@@ -215,6 +216,15 @@
   	}
 
   	return false;
+  }
+
+  function checkType (value, rule) {
+    var type = _checkType(value);
+    if (type == rule) {
+      return true;
+    }
+
+    return false;
   }
 
   /**
