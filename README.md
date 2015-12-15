@@ -55,6 +55,7 @@ var rules = {
   age: [
     'required:true'
     'min:3',
+    'type:number',
     'max: 20'
   ]
 };
@@ -73,6 +74,7 @@ var validation = JSValidator(values, rules, function (propName, status) {
 - <code>max:[value]</code>: must be the same or under [value]
 - <code>same:[value]</code>: must be the same as [value]
 - <code>required:true</code>: must be non-empty and existed.
+- <code>type:[value]</code>: must be the same as type (string, number, array, object, boolean)
 
 ## Contribution guide (soon)
 
