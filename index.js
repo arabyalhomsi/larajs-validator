@@ -40,6 +40,11 @@
 
 })('JSValidator', this, function(){
 
+  // Regex
+  var regex_alpha = new RegExp("^[a-zA-Z]*$");
+  var regex_alpha_num = new RegExp("^[a-zA-Z0-9]*$");
+  var regex_alpha_dash = new RegExp("^[a-zA-Z_]*$");
+
   /**
    * Check the type of the value
    * @return {string} The type of the given value
@@ -119,7 +124,10 @@
 		max: checkMax,
 		required: checkRequired,
 		same: checkSame,
-    type: checkType
+    type: checkType,
+    alpha: checkAlpha,
+    alpha_num: checkAlphaNum,
+    alpha_dash: checkAlphaDash
 	};
 
 	/**
@@ -225,6 +233,27 @@
     }
 
     return false;
+  }
+
+  function checkAlpha(value, rule) {
+    if (rule) {
+      var st = regex_alpha.test(value);
+      return st;
+    }
+  }
+
+  function checkAlphaNum(value, rule) {
+    if (rule) {
+      var st = regex_alpha_num.test(value);
+      return st;
+    }
+  }
+
+  function checkAlphaDash(value, rule) {
+    if (rule) {
+      var st = regex_alpha_dash.test(value);
+      return st;
+    }
   }
 
   /**
