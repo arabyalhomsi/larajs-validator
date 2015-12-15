@@ -85,3 +85,4 @@ var validation = JSValidator(values, rules, function (propName, status) {
 1. Complete Validation Rules.
 2. Errors System.
 3. Add Custom Validation Rule.
+4. Testing.
