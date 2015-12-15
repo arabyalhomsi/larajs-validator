@@ -70,11 +70,14 @@ var validation = JSValidator(values, rules, function (propName, status) {
 ```
 
 ## Validation Rules
-- <code>min:[value]</code>: must be the same or above [value]
-- <code>max:[value]</code>: must be the same or under [value]
-- <code>same:[value]</code>: must be the same as [value]
-- <code>required:true</code>: must be non-empty and existed.
-- <code>type:[value]</code>: must be the same as type (string, number, array, object, boolean)
+- <code>min:[value]</code>: Must be the same or above [value]
+- <code>max:[value]</code>: Must be the same or under [value]
+- <code>same:[value]</code>: Must be the same as [value]
+- <code>required:true</code>: Must be non-empty and existed.
+- <code>type:[value]</code>: Must be the same as type (string, number, array, object, boolean)
+- <code>alpha:true</code>: Must be entirely alphabetic characters.
+- <code>alpha_num:true</code>: Must be entirely alpha-numeric characters.
+- <code>alpha_dash:true</code>: May have alpha-numeric, dashes, and underscores.
 
 ## Contribution guide (soon)
 

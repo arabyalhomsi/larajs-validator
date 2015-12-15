@@ -43,7 +43,7 @@
   // Regex
   var regex_alpha = new RegExp("^[a-zA-Z]*$");
   var regex_alpha_num = new RegExp("^[a-zA-Z0-9]*$");
-  var regex_alpha_dash = new RegExp("^[a-zA-Z_]*$");
+  var regex_alpha_dash = new RegExp("^[a-zA-Z_-]*$");
 
   /**
    * Check the type of the value
