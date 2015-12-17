@@ -106,12 +106,17 @@
   }
 
   /**
-   * Split the value by :
+   * Split the value by Colon
    * @param  {string} validateRule string to split.
    * @return {array}               an array that have 2 values, ruleName and ruleValue 
    */
-  function validateSplitter(validateRule) {
+  function splitByColon(validateRule) {
     var splitted = validateRule.split(':');
+    return splitted;
+  }
+
+  function splitBySepartor(value) {
+    var splitted = value.split('|');
     return splitted;
   }
 
@@ -272,11 +277,12 @@
     for (value in values) {
       var propName = value;
       var prop = values[propName];
-      var rule = rules[propName];
+      var rulesString = rules[propName];
+      var rule = splitBySepartor(rulesString);
 
       if (rule) {
 	      rule.forEach(function(value){
-	        var oneRule = validateSplitter(value);
+	        var oneRule = splitByColon(value);
 	        var oneRuleName = oneRule[0];
 	        var oneRuleValue = oneRule[1];
 	        var validator = registredValidators[oneRuleName] || undefined;

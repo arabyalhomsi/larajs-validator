@@ -16,18 +16,10 @@ var values = {
 
 // Rules
 var rules = {
-  username: [
-    'required:true',
-    'min:3',
-    'max:12',
-  ],
-  age: [
-    'required:true'
-    'min:3',
-    'max: 20'
-  ],
-  skills: ['min:2', 'max:5'],
-  email: ['required:true', 'same:araby.ami@gmail.com']
+  username: 'required:true|min:3|max:12',
+  age: 'required:true|min:3|max:20|type:number',
+  skills: 'min:2|max:5|type:array',
+  email: 'required:true|same:araby.ami@gmail.com'
 };
 
 var validation = JSValidator(values, rules);
@@ -47,17 +39,8 @@ var values = {
 
 // Rules
 var rules = {
-  username: [
-    'required:true',
-    'min:3',
-    'max:12',
-  ],
-  age: [
-    'required:true'
-    'min:3',
-    'type:number',
-    'max: 20'
-  ]
+  username: 'required:true|min:3|max:12',
+  age: 'required:true|min:3|max:20'
 };
 
 var validation = JSValidator(values, rules, function (propName, status) {
