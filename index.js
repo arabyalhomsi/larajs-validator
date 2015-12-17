@@ -210,11 +210,9 @@
    * @param  {boolean} rule  the rule.
    * @return {boolean}
    */
-  function checkRequired(value, rule) {
-  	if (rule) {
+  function checkRequired(value) {
   		var status = _checkIfHave(value);
   		return status;
-  	}
   }
 
   /**
@@ -240,25 +238,19 @@
     return false;
   }
 
-  function checkAlpha(value, rule) {
-    if (rule) {
+  function checkAlpha(value) {
       var st = regex_alpha.test(value);
       return st;
-    }
   }
 
-  function checkAlphaNum(value, rule) {
-    if (rule) {
+  function checkAlphaNum(value) {
       var st = regex_alpha_num.test(value);
       return st;
-    }
   }
 
-  function checkAlphaDash(value, rule) {
-    if (rule) {
+  function checkAlphaDash(value) {
       var st = regex_alpha_dash.test(value);
       return st;
-    }
   }
 
   /**
@@ -284,13 +276,16 @@
 	      rule.forEach(function(value){
 	        var oneRule = splitByColon(value);
 	        var oneRuleName = oneRule[0];
-	        var oneRuleValue = oneRule[1];
+	        var oneRuleValue = oneRule[1] || '';
 	        var validator = registredValidators[oneRuleName] || undefined;
 	        
-	        if (validator == undefined) throw Error ('There is no rule to "' + oneRuleName + '"');
-	        if (oneRuleValue == '') throw Error ('You should set value for ' + oneRuleName);
+          if (validator == undefined) throw Error ('There is no rule to "' + oneRuleName + '"');
 
-	        var validationStatus = validator(prop, oneRuleValue);
+	        if (oneRuleValue == '') {
+            var validationStatus = validator(prop);
+          }else {
+            var validationStatus = validator(prop, oneRuleValue);
+          }
 	        
 	        if (onEvery) onEvery(propName, validationStatus);
 
