@@ -1,0 +1,25 @@
+{
+  "name": "larajs-validator",
+  "version": "0.0.2",
+  "description": "JS Validator inspired by Laravel Validator.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arabyalhomsi/JS-Validator.git"
+  },
+  "keywords": [
+    "validator",
+    "javascript",
+    "laravel",
+    "validation"
+  ],
+  "author": "Araby Alhomsi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/arabyalhomsi/JS-Validator/issues"
+  },
+  "homepage": "https://github.com/arabyalhomsi/JS-Validator#readme"
+}

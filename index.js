@@ -1,5 +1,5 @@
 /**
- * JS Validator
+ * LaraJS Validator
  * Awesome values validator inspired by Laravel Validator.
  * @author Araby Alhomsi
  * @version 0.0.2
