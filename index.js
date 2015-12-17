@@ -2,7 +2,7 @@
  * JS Validator
  * Awesome values validator inspired by Laravel Validator.
  * @author Araby Alhomsi
- * @version 0.0.1
+ * @version 0.0.2
  * 
  * The MIT License (MIT)
  *
@@ -260,7 +260,7 @@
    * @param  {function} onEvery   function runs on every property validation. 
    * @return {object}             Object contains errors and passed functions.
    */
-  return function(values, rules, onEvery){
+  return function(values, rules, options, onEvery){
     var values = values,
         rules = rules,
         onEvery = onEvery,
@@ -271,7 +271,12 @@
       var prop = values[propName];
       var rulesString = rules[propName];
       var rule = splitBySepartor(rulesString);
-
+      
+      // if the values are setter-getter
+      if (options.setget == true) {
+      	prop = prop();
+      }
+      
       if (rule) {
 	      rule.forEach(function(value){
 	        var oneRule = splitByColon(value);
