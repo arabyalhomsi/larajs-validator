@@ -1,6 +1,6 @@
 {
   "name": "larajs-validator",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "JS Validator inspired by Laravel Validator.",
   "main": "index.js",
   "scripts": {
@@ -14,7 +14,8 @@
     "validator",
     "javascript",
     "laravel",
-    "validation"
+    "validation",
+    "mithril"
   ],
   "author": "Araby Alhomsi",
   "license": "MIT",

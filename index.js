@@ -2,7 +2,7 @@
  * LaraJS Validator
  * Awesome values validator inspired by Laravel Validator.
  * @author Araby Alhomsi
- * @version 0.0.2
+ * @version 0.0.3
  * 
  * The MIT License (MIT)
  *
@@ -38,12 +38,13 @@
         context[name] = definition();
     }
 
-})('JSValidator', this, function(){
+})('jsvalidator', this, function(){
 
   // Regex
-  var regex_alpha = new RegExp("^[a-zA-Z]*$");
-  var regex_alpha_num = new RegExp("^[a-zA-Z0-9]*$");
-  var regex_alpha_dash = new RegExp("^[a-zA-Z_-]*$");
+  var regex_alpha = /^[a-zA-Z]*$/;
+  var regex_alpha_num = /^[a-zA-Z0-9]*$/;
+  var regex_alpha_dash = /^[a-zA-Z_-]*$/;
+  var regex_email = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
 
   /**
    * Check the type of the value
@@ -132,7 +133,8 @@
     type: checkType,
     alpha: checkAlpha,
     alpha_num: checkAlphaNum,
-    alpha_dash: checkAlphaDash
+    alpha_dash: checkAlphaDash,
+    email: checkEmail
 	};
 
 	/**
@@ -253,6 +255,14 @@
       return st;
   }
 
+  function checkEmail(value) {
+    if (value) {
+      var st = regex_email.test(value);
+      return st;
+    }
+    return true;
+  }
+
   /**
    * Validator function
    * @param  {object}   values    object have the values and their names.
@@ -272,6 +282,7 @@
       var prop = values[propName];
       var rulesString = rules[propName];
       var rule = splitBySepartor(rulesString);
+      var ruleErrors = [];
       
       // if the values are setter-getter
       if (options.setget == true) {
@@ -293,15 +304,15 @@
             var validationStatus = validator(prop, oneRuleValue);
           }
 	        
-	        if (onEvery) onEvery(propName, validationStatus);
-
 	        if (!validationStatus) {
-	          errors.push(propName + '.' + oneRuleName);
+	          ruleErrors.push(propName + '.' + oneRuleName);
 	        }
-	      });
-      }
+        });
 
-    }
+        if (onEvery) onEvery(propName, passed(ruleErrors));
+        errors = errors.concat(ruleErrors);
+      }
+    };
 
     return {
       passed: passed.bind(null, errors),
