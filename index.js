@@ -263,6 +263,7 @@
   return function(values, rules, options, onEvery){
     var values = values,
         rules = rules,
+        options = options || {},
         onEvery = onEvery,
         errors = [];
 
