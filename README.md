@@ -1,6 +1,16 @@
 # JS-Validator
 JS Validator inspired by Laravel Validator.
 
+## Installation
+### html
+```
+<script src="larajs-validator.js"></script>
+```
+### via NPM
+```
+npm i larajs-validator
+```
+
 ## how to use
 
 ### Sample Example
