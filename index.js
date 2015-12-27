@@ -2,7 +2,7 @@
  * LaraJS Validator
  * Awesome values validator inspired by Laravel Validator.
  * @author Araby Alhomsi
- * @version 0.0.3
+ * @version 0.1.3
  * 
  * The MIT License (MIT)
  *
@@ -240,7 +240,7 @@
 
     return false;
   }
-  
+
   /**
    * [checkSameAttr description]
    * @param  {[type]} value        [description]

@@ -160,7 +160,7 @@ m.mount(document.body, HomeComponent);
 - <code>max:[value]</code>: Must be the same or under [value]
 - <code>same:[value]</code>: Must be the same as [value]
 - <code>type:[value]</code>: Must be the same as type (string, number, array, object, boolean)
-- <code>sameAttr:[attribute]</code>: Must equals to [attribute]'s value.  
+- <code>sameAttr:[attribute]</code>: Must be the same as the value of [attribute]
 - <code>required</code>: Must be non-empty and existed.
 - <code>alpha</code>: Must be entirely alphabetic characters.
 - <code>alpha_num</code>: Must be entirely alpha-numeric characters.
