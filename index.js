@@ -134,7 +134,8 @@
     alpha: checkAlpha,
     alpha_num: checkAlphaNum,
     alpha_dash: checkAlphaDash,
-    email: checkEmail
+    email: checkEmail,
+    sameAttr: checkSameAttr
 	};
 
 	/**
@@ -239,6 +240,21 @@
 
     return false;
   }
+  
+  /**
+   * [checkSameAttr description]
+   * @param  {[type]} value        [description]
+   * @param  {[type]} rule         [description]
+   * @param  {[type]} valuesObject [description]
+   * @return {[type]}              [description]
+   */
+  function checkSameAttr(value, rule, valuesObject) {
+    if (value === valuesObject[rule]) {
+      return true;
+    }
+
+    return false;
+  }
 
   function checkAlpha(value) {
       var st = regex_alpha.test(value);
@@ -301,7 +317,7 @@
 	        if (oneRuleValue == '') {
             var validationStatus = validator(prop);
           }else {
-            var validationStatus = validator(prop, oneRuleValue);
+            var validationStatus = validator(prop, oneRuleValue, values);
           }
 	        
 	        if (!validationStatus) {
