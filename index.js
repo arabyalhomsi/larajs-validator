@@ -58,6 +58,9 @@
           return 'object'
       }
     } else if (typeof value == 'string') {
+      if (isNaN(parseInt(value)) == false) {
+        return 'number';
+      }
       return 'string';
     } else if (typeof value == 'number') {
       if (isNaN(value)) {
