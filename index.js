@@ -2,7 +2,7 @@
  * LaraJS Validator
  * Awesome values validator inspired by Laravel Validator.
  * @author Araby Alhomsi
- * @version 0.1.4
+ * @version 0.1.5
  * 
  * The MIT License (MIT)
  *
@@ -252,7 +252,14 @@
    * @return {[type]}              [description]
    */
   function checkSameAttr(value, rule, valuesObject) {
-    if (value === valuesObject[rule]) {
+    var valueToC = valuesObject[rule];
+    
+    // if is setter-getter
+    if(typeof valueToC == 'function') {
+      valueToC = valueToC();
+    }
+
+    if (value === valueToC) {
       return true;
     }
 
