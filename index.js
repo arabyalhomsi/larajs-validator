@@ -120,6 +120,7 @@
   }
 
   function splitBySepartor(value) {
+    if (!value) return '';
     var splitted = value.split('|');
     return splitted;
   }
