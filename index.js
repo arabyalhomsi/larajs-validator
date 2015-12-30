@@ -59,7 +59,7 @@
       }
     } else if (typeof value == 'string') {
       if (isNaN(parseInt(value)) == false) {
-        return 'number';
+        return 'stringNumber';
       }
       return 'string';
     } else if (typeof value == 'number') {
@@ -156,6 +156,11 @@
   				return true;
   			}
   		break;
+      case 'stringNumber':
+        if (value.length >= rule) {
+          return true;
+        }
+      break;
   		case 'number':
   			if (value >= rule) {
   				return true;
@@ -191,6 +196,11 @@
   				return true;
   			}
   		break;
+      case 'stringNumber':
+        if (value.length <= rule) {
+          return true;
+        }
+      break;
   		case 'number':
   			if (value <= rule) {
   				return true;
