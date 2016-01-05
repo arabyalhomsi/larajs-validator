@@ -2,7 +2,7 @@
  * LaraJS Validator
  * Awesome values validator inspired by Laravel Validator.
  * @author Araby Alhomsi
- * @version 0.1.6
+ * @version 0.1.8
  * 
  * The MIT License (MIT)
  *
@@ -239,7 +239,9 @@
    * @return {boolean}
    */
   function checkSame (value, rule) {
-  	if (value == rule) {
+    if (!value) return true;
+  	
+    if (value == rule) {
   		return true;
   	}
 
@@ -247,6 +249,8 @@
   }
 
   function checkType (value, rule) {
+    if (!value) return true;
+    
     var type = _checkType(value);
     if (type == rule) {
       return true;
