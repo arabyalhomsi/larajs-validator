@@ -2,7 +2,7 @@
  * LaraJS Validator
  * Awesome values validator inspired by Laravel Validator.
  * @author Araby Alhomsi
- * @version 0.1.8
+ * @version 0.1.9
  * 
  * The MIT License (MIT)
  *
@@ -55,10 +55,10 @@
       if (Array.isArray(value)) {
           return 'array';
         } else {
-          return 'object'
+          return 'object';
       }
     } else if (typeof value == 'string') {
-      if (isNaN(parseInt(value)) == false) {
+      if (isNaN(parseInt(value)) === false) {
         return 'stringNumber';
       }
       return 'string';
@@ -85,7 +85,7 @@
         }
     }
     else if (_checkType(value) == 'array') {
-        if (value.length != 0) {
+        if (value.length !== 0) {
           returned = true;
         }
     } 
@@ -102,7 +102,7 @@
    * @return {boolean}            true if has, false if not.
    */
   function passed(errorsArray) {
-    if (errorsArray.length == 0) {
+    if (errorsArray.length === 0) {
       return true;
     }else {
       return false;
@@ -312,13 +312,15 @@
    * @return {object}             Object contains errors and passed functions.
    */
   return function(values, rules, options, onEvery){
+    /* jshint ignore:start */
     var values = values,
         rules = rules,
         options = options || {},
         onEvery = onEvery,
         errors = [];
+    /* jshint ignore:end */
 
-    for (value in values) {
+    for (var value in values) {
       var propName = value;
       var prop = values[propName];
       var rulesString = rules[propName];
@@ -326,23 +328,24 @@
       var ruleErrors = [];
       
       // if the values are setter-getter
-      if (options.setget == true) {
+      if (options.setget === true) {
       	prop = prop();
       }
       
       if (rule) {
 	      rule.forEach(function(value){
-	        var oneRule = splitByColon(value);
-	        var oneRuleName = oneRule[0];
-	        var oneRuleValue = oneRule[1] || '';
-	        var validator = registredValidators[oneRuleName] || undefined;
+	        var oneRule = splitByColon(value),
+              oneRuleName = oneRule[0],
+              oneRuleValue = oneRule[1] || '',
+              validator = registredValidators[oneRuleName] || undefined,
+              validationStatus;
 	        
-          if (validator == undefined) throw Error ('There is no rule to "' + oneRuleName + '"');
+          if (validator === undefined) throw Error ('There is no rule to "' + oneRuleName + '"');
 
-	        if (oneRuleValue == '') {
-            var validationStatus = validator(prop);
+	        if (oneRuleValue === '') {
+            validationStatus = validator(prop);
           }else {
-            var validationStatus = validator(prop, oneRuleValue, values);
+            validationStatus = validator(prop, oneRuleValue, values);
           }
 	        
 	        if (!validationStatus) {
@@ -353,7 +356,7 @@
         if (onEvery) onEvery(propName, passed(ruleErrors));
         errors = errors.concat(ruleErrors);
       }
-    };
+    }
 
     return {
       passed: passed.bind(null, errors),
