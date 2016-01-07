@@ -1,5 +1,5 @@
-# JS-Validator
-JS Validator inspired by Laravel Validator.
+# LaraJS Validator
+Awesome values validator inspired by Laravel Validator.s
 
 ## Installation
 ### html
