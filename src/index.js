@@ -77,7 +77,7 @@ larajsValidator.class.prototype = {
           }
 
           if (oneRuleValue === '') {
-            validationStatus = validator(prop);
+            validationStatus = validator(prop, values);
           }
           else {
             validationStatus = validator(prop, oneRuleValue, values);

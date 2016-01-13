@@ -8,6 +8,11 @@ var RulesController = function () {
 
 var _rulesProto = RulesController.prototype;
 
+/**
+ * Add new rule to use in validation
+ * @param {String} ruleName     Rule name, which will be used in 
+ * @param {Function} ruleFunction Rule function takes 3 arguments (value, ruleValue, valuesObject)
+ */
 _rulesProto.addRule = function (ruleName, ruleFunction) {
   if (!this.rules[ruleName]) {
     this.rules[ruleName] = ruleFunction;
@@ -18,6 +23,11 @@ _rulesProto.addRule = function (ruleName, ruleFunction) {
 
 };
 
+/**
+ * Ovrride Rule to use in validation
+ * @param {String} ruleName     Rule name, which will be used in 
+ * @param {Function} ruleFunction Rule function takes 3 arguments (value, ruleValue, valuesObject)
+ */
 _rulesProto.overrideRule = function (ruleName, ruleFunction) {
   this.rules[ruleName] = ruleFunction;
 };
