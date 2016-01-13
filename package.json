@@ -2,7 +2,7 @@
   "name": "larajs-validator",
   "version": "0.1.9",
   "description": "Awesome values validator inspired by Laravel Validator.",
-  "main": "index.js",
+  "main": "dist/laraJsValidator.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -25,8 +25,11 @@
   "homepage": "https://github.com/arabyalhomsi/larajs-validator#readme",
   "devDependencies": {
     "gulp": "^3.9.0",
+    "gulp-browserify": "^0.5.1",
     "gulp-jasmine": "^2.2.1",
     "gulp-jshint": "^2.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-util": "^3.0.7",
     "jasmine": "^2.4.1",
     "jasmine-spec-reporter": "^2.4.0",
     "jshint": "^2.8.0"
