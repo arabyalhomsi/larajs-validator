@@ -40,7 +40,9 @@ exports.checkType = checkType;
 var checkIfHave = function (value) {
   var returned = false;
   if (checkType(value) === 'object') {
-    if (Object.keys(value)
+    if (value === null) {
+      return false;
+    }else if (Object.keys(value)
       .length) {
       returned = true;
     }
@@ -49,6 +51,9 @@ var checkIfHave = function (value) {
     if (value.length !== 0) {
       returned = true;
     }
+  }
+  else if (checkType(value) === 'number') {
+    return true;
   }
   else {
     if (value) {
