@@ -15,7 +15,7 @@ gulp.task('js', function () {
       standalone: packageJson.name,
       debug: true
     }))
-    .pipe(rename('laraJsValidator.js'))
+    .pipe(rename('larajsValidator.js'))
     .pipe(gulp.dest('dist/'));
 
 });

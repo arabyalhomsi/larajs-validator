@@ -2,7 +2,7 @@
   "name": "larajs-validator",
   "version": "0.1.9",
   "description": "Awesome values validator inspired by Laravel Validator.",
-  "main": "dist/laraJsValidator.js",
+  "main": "dist/larajsValidator.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
