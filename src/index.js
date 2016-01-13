@@ -8,8 +8,8 @@ var rulesController = new RulesController();
 /**
  * function that return instance of larajsValidator.class
  */
-var larajsValidator = function (values, rules, options, onEvery) {
-  var validation = new larajsValidator.class(values, rules, options, onEvery)
+var larajsValidator = function (values, rules, onEvery) {
+  var validation = new larajsValidator.class(values, rules, onEvery)
     .init();
   return validation;
 };
@@ -26,10 +26,9 @@ larajsValidator.rules = rulesController;
  * @param  {function} onEvery   function runs on every property validation. 
  * @return {object}             Object contains errors and passed functions.
  */
-larajsValidator.class = function (values, rules, options, onEvery) {
+larajsValidator.class = function (values, rules, onEvery) {
   this.userValues = values;
   this.userRules = rules || {};
-  this.userOptions = options || {};
   this.OnEvery = onEvery;
   this.errors = [];
 };
@@ -59,7 +58,7 @@ larajsValidator.class.prototype = {
         ruleErrors = [];
 
       // if the values are setter-getter
-      if (this.userOptions.setget === true) {
+      if (typeof prop === "function") {
         prop = prop();
       }
 
