@@ -1,5 +1,8 @@
 'use strict';
 
+var helpers = {};
+
+
 /**
  * Check the type of the value
  * @return {string} The type of the given value
@@ -30,7 +33,7 @@ var checkType = function (value) {
   }
 };
 
-exports.checkType = checkType;
+helpers.checkType = checkType;
 
 /**
  * Check whether the value is empty or not.
@@ -63,7 +66,7 @@ var checkIfHave = function (value) {
   return returned;
 };
 
-exports.checkIfHave = checkIfHave;
+helpers.checkIfHave = checkIfHave;
 
 /**
  * Check if errors array is empty or not.
@@ -79,7 +82,7 @@ var passed = function (errorsArray) {
   }
 };
 
-exports.passed = passed;
+helpers.passed = passed;
 
 /**
  * Split the value by Colon
@@ -91,7 +94,7 @@ var splitByColon = function (validateRule) {
   return splitted;
 };
 
-exports.splitByColon = splitByColon;
+helpers.splitByColon = splitByColon;
 
 /**
  * [splitBySepartor description]
@@ -106,4 +109,7 @@ var splitBySepartor = function (value) {
   return splitted;
 };
 
-exports.splitBySepartor = splitBySepartor;
+helpers.splitBySepartor = splitBySepartor;
+
+
+export default helpers;

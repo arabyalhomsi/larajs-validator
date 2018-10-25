@@ -1,7 +1,7 @@
 'use strict';
 
-var regex = require('./regex');
-var h = require('./helpers');
+import regex from './regex';
+import h from './helpers';
 
 var builtInRules = {
 
@@ -203,4 +203,4 @@ var builtInRules = {
   }
 };
 
-module.exports = builtInRules;
+export default builtInRules;

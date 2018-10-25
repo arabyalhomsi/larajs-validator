@@ -1,7 +1,9 @@
 'use strict';
 
-var RulesController = require('./rules');
-var h = require('./helpers');
+import RulesController from './rules';
+import h from './helpers';
+
+
 var rulesController = new RulesController();
 
 
@@ -96,4 +98,4 @@ larajsValidator.class.prototype = {
   }
 };
 
-module.exports = larajsValidator;
+export default larajsValidator;

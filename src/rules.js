@@ -1,6 +1,6 @@
 'use strict';
 
-var builtInRules = require('./builtInRules');
+import builtInRules from './builtInRules';
 
 var RulesController = function () {
   this.rules = builtInRules;
@@ -32,4 +32,4 @@ _rulesProto.overrideRule = function (ruleName, ruleFunction) {
   this.rules[ruleName] = ruleFunction;
 };
 
-module.exports = RulesController;
+export default RulesController;

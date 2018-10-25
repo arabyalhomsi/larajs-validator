@@ -10,5 +10,4 @@ Regex.alpha_dash = /^[a-zA-Z_-]*$/;
 
 Regex.email = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
 
-
-module.exports = Regex;
+export default Regex;
