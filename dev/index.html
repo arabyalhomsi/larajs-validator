@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+    <script src="js/larajsValidator.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    
+    <script>
+    
+        var values = {
+            username: 'a',
+            age: 'a',
+            skills: ['CSS3', 'JavaScript', 'HTML5'],
+            email: 'araby.ami@gmail.com'
+        };
+
+
+        axios.get('./validation.json')
+        .then(function (res) {
+            
+            var rules = res.data.loginForm;
+
+
+            var validation = new larajsValidator(values, rules);
+
+            console.log(validation.passed());
+            console.log(validation.errors);
+
+
+        });
+
+
+
+
+    </script>
+</body>
+</html>

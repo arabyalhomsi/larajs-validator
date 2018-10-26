@@ -25,13 +25,14 @@
   "homepage": "https://github.com/arabyalhomsi/larajs-validator#readme",
   "devDependencies": {
     "gulp": "^3.9.1",
+    "gulp-connect": "^5.6.1",
     "gulp-jasmine": "^4.0.0",
     "gulp-jshint": "^2.0.0",
     "gulp-rename": "^1.2.2",
+    "gulp-rollup": "^2.16.2",
     "gulp-util": "^3.0.7",
     "jasmine": "^3.3.0",
     "jasmine-spec-reporter": "^4.2.1",
-    "jshint": "^2.8.0",
-    "gulp-rollup": "^2.16.2"
+    "jshint": "^2.8.0"
   }
 }

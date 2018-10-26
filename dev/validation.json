@@ -1,0 +1,8 @@
+{
+    "loginForm": {
+        "username": "required|min:3|max:12|alpha",
+        "age": "required|min:3|max:20|type:number",
+        "skills": "min:2|max:5|type:array",
+        "email": "required|same:araby.ami@gmail.com"
+    }
+}
