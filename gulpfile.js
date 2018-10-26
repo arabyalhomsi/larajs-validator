@@ -1,10 +1,10 @@
 var gulp = require('gulp');
 var rename = require('gulp-rename');
 var jshint = require('gulp-jshint');
-var jasmine = require('gulp-jasmine');
-var jasmineReporter = require('jasmine-spec-reporter');
 var rollup = require('gulp-rollup');
 var connect = require('gulp-connect');
+var jest = require('gulp-jest').default;
+
 
 gulp.task('js', function () {
 
@@ -50,7 +50,10 @@ gulp.task('watch', function () {
 gulp.task('test', function () {
   gulp.src(['spec/**/*.js'])
 
-  .pipe(jasmine({
-    reporter: new jasmineReporter.SpecReporter()
+  .pipe(jest({
+    "preprocessorIgnorePatterns": [
+      "<rootDir>/dist/", "<rootDir>/node_modules/"
+    ],
+    "automock": false
   }));
 });
